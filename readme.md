@@ -38,6 +38,7 @@ This is the documentation for the expense tracker app. The backend is built usin
    ```bash
    php artisan migrate
    ```
+   > ℹ️ If you're unable to run migrations, a SQL dump file named `expense_tracker_backend.sql` is included in the backend directory. You can import it manually into your database as a fallback.
 
 6. **Seed the database with dummy data**
    ```bash
