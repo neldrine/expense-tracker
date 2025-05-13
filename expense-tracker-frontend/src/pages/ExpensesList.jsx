@@ -7,11 +7,18 @@ import '../css/ExpensesList.css';
 import Header from "../components/header";
 
 export default function ExpensesList() {
-    const { logout } = useContext(AuthContext);
     const [expenses, setExpenses] = useState([]);
 
     const loadExpenses = async () => {
-        const res = await axios.get(`${EXPENSE_TRACKER_API_URL}/expenses`);
+        const token = localStorage.getItem('token');
+        if (!token) return;
+
+        const res = await axios.get(`${EXPENSE_TRACKER_API_URL}/expenses`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+
         setExpenses(res.data);
     };
 

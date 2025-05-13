@@ -8,6 +8,9 @@ export default function Home() {
     return (
         <div className="login-form">
             <h2>ExpenseTracker</h2>
+            <p>There are 2 pre-set users</p>
+            <p>username: <strong>user</strong> & password: <strong>password123</strong></p>
+            <p>username: <strong>admin</strong> & password: <strong>password123</strong></p>
             {token ? (
                 <>
                     <p className="welcome-message">Hello, {user?.name}!</p>

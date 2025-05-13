@@ -24,6 +24,10 @@ export default function Login() {
     return (
         <form onSubmit={handleSubmit} className="login-form">
             <h2>Login</h2>
+            <p>There are 2 pre-set users</p>
+            <p>username: <strong>user</strong> & password: <strong>password123</strong></p>
+            <p>username: <strong>admin</strong> & password: <strong>password123</strong></p>
+            <br/>
             {error && <p className="error-message">{error}</p>}
 
             <div className="form-group">
