@@ -13,23 +13,20 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        //
+        return auth()->user()->expenses()->latest()->get();
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        $validated = $request->validate([
+            'description' => 'required|string|max:255',
+            'amount' => 'required|numeric|min:0.01',
+            'category' => 'required|string|in:Transport,Food,Utilities,Rent,Health,Education',
+        ]);
+        $expense = auth()->user()->expenses()->create($validated);
+        return response()->json($expense, 201);
     }
 
     /**
@@ -37,7 +34,14 @@ class ExpenseController extends Controller
      */
     public function show(Expense $expense)
     {
-        //
+        // future refactor use guard/policy middleware
+        if ($expense->user_id !== auth()->id()) {
+            return response()->json([
+                'message' => 'Not Found'
+            ], 404);
+        }
+
+        return response()->json($expense);
     }
 
     /**
@@ -61,6 +65,12 @@ class ExpenseController extends Controller
      */
     public function destroy(Expense $expense)
     {
-        //
+        // future refactor use guard/policy middleware
+        if ($expense->user_id !== auth()->id()) {
+            return response()->json(['message' => "Expense not found or does not belong to the authenticated user."], 404);
+        }
+
+        $expense->delete();
+        return response()->json(['message' => 'Expense deleted'], 200);
     }
 }
