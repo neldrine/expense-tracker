@@ -11,9 +11,19 @@ class ExpenseController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return auth()->user()->expenses()->latest()->get();
+        $query = auth()->user()->expenses()->latest();
+
+        if ($request->has('category')) {
+            $query->where('category', $request->input('category'));
+        }
+
+        if ($request->has('date')) {
+            $query->whereDate('date', $request->input('date'));
+        }
+
+        return $query->get();
     }
 
     /**
