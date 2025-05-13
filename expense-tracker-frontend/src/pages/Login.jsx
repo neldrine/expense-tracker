@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from "../context/AuthContext.jsx";
 import { useNavigate } from 'react-router-dom';
+import '../css/Login.css';
 
 export default function Login() {
     const { login } = useContext(AuthContext);
@@ -21,12 +22,22 @@ export default function Login() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="login-form">
             <h2>Login</h2>
-            {error && <p>{error}</p>}
-            <input name="name" value={form.name} onChange={handleChange} placeholder="Username" required />
-            <input name="password" type="password" value={form.password} onChange={handleChange} placeholder="Password" required />
-            <button type="submit">Login</button>
+            {error && <p className="error-message">{error}</p>}
+
+            <div className="form-group">
+                <label>Username</label>
+                <input id="name" name="name" value={form.name} onChange={handleChange} placeholder="Username" required/>
+            </div>
+
+            <div className="form-group">
+                <label>Password</label>
+                <input id="password" name="password" value={form.password} onChange={handleChange} type="password" placeholder="Password" required/>
+
+            </div>
+
+            <button type="submit" className="submit-button">Login</button>
         </form>
     );
 }

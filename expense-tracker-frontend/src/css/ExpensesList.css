@@ -1,0 +1,86 @@
+.expenses-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.expense-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.expense-item {
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.expense-delete{
+    display: flex;
+    margin-top: 10px;
+    justify-content: right;
+}
+
+.expense-delete button{
+    display: flex;
+    margin-top: 10px;
+    justify-content: right;
+}
+
+/* Transport,Food,Utilities,Rent,Health,Education */
+
+.expense-item.transport{
+    border-left: 4px solid #007bff;
+}
+
+.expense-item.food{
+    border-left: 4px solid #ffdb00;
+}
+
+.expense-item.utilities{
+    border-left: 4px solid #00ff73;
+}
+
+.expense-item.utilities{
+    border-left: 4px solid #743ed2;
+}
+
+.expense-item.rent{
+    border-left: 4px solid #ff001f;
+}
+
+.expense-item.health{
+    border-left: 4px solid #00ffe9;
+}
+
+.expense-item.Education{
+    border-left: 4px solid #f69d36;
+}
+
+.expense-info .description {
+    font-weight: bold;
+}
+
+.expense-info .category {
+    display: block;
+    color: #6c757d;
+    margin-top: 5px;
+}
+
+.expense-meta {
+    text-align: right;
+}
+
+.expense-meta .amount {
+    font-weight: bold;
+    font-size: 22px;
+    color: #28a745;
+}
+
+.expense-meta .date {
+    display: block;
+    margin-top: 5px;
+    color: #6c757d;
+}
