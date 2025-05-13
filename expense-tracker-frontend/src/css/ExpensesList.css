@@ -55,7 +55,7 @@
     border-left: 4px solid #00ffe9;
 }
 
-.expense-item.Education{
+.expense-item.education{
     border-left: 4px solid #f69d36;
 }
 
@@ -110,4 +110,29 @@
     font-weight: bold;
     color: #333;
     margin-bottom: 0;
+}
+
+.expense-filters {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.expense-filters select,
+.expense-filters input,
+.expense-filters button {
+    padding: 8px;
+    font-size: 14px;
+}
+
+.expense-create{
+    width: 100%;
+    padding: 12px 8px;
+    margin: 0 0 15px 0;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
