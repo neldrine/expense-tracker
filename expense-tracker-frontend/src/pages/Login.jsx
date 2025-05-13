@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
     const { login } = useContext(AuthContext);
-    const [form, setForm] = useState({ username: '', password: '' });
+    const [form, setForm] = useState({ name: '', password: '' });
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
@@ -13,7 +13,7 @@ export default function Login() {
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            await login(form.username, form.password);
+            await login(form.name, form.password);
             navigate('/expenses');
         } catch (err) {
             setError('Invalid credentials');
@@ -24,7 +24,7 @@ export default function Login() {
         <form onSubmit={handleSubmit}>
             <h2>Login</h2>
             {error && <p>{error}</p>}
-            <input name="username" value={form.username} onChange={handleChange} placeholder="Username" required />
+            <input name="name" value={form.name} onChange={handleChange} placeholder="Username" required />
             <input name="password" type="password" value={form.password} onChange={handleChange} placeholder="Password" required />
             <button type="submit">Login</button>
         </form>

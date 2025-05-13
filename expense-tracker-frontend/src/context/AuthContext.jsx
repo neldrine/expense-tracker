@@ -13,8 +13,8 @@ export const AuthProvider = ({ children }) => {
         }
     }, [token]);
 
-    const login = async (username, password) => {
-        const res = await axios.post(`${EXPENSE_TRACKER_API_URL}/auth/login`, { username, password });
+    const login = async (name, password) => {
+        const res = await axios.post(`${EXPENSE_TRACKER_API_URL}/auth/login`, { name, password });
         setToken(res.data.token);
         localStorage.setItem('token', res.data.token);
     };
