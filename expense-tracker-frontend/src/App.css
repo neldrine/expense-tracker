@@ -30,7 +30,7 @@ button.delete{
     cursor: pointer;
 }
 
-form button {
+form button, .btn-block {
     width: 100%;
     padding: 12px;
     font-size: 16px;
@@ -48,4 +48,10 @@ form button:hover {
 h2{
     margin-bottom: 24px;
     font-size: 24px;
+}
+
+.user-name {
+    margin-right: 12px;
+    font-weight: bold;
+    color: #333;
 }

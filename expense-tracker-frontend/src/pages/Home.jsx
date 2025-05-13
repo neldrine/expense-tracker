@@ -1,43 +1,27 @@
-import { useContext, useState } from 'react';
-import { AuthContext } from "../context/AuthContext.jsx";
-import { useNavigate } from 'react-router-dom';
-import '../css/Login.css';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
-export default function Login() {
-    const { login } = useContext(AuthContext);
-    const [form, setForm] = useState({ name: '', password: '' });
-    const [error, setError] = useState(null);
-    const navigate = useNavigate();
-
-    const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
-
-    const handleSubmit = async e => {
-        e.preventDefault();
-        try {
-            await login(form.name, form.password);
-            navigate('/expenses');
-        } catch (err) {
-            setError('Invalid credentials');
-        }
-    };
+export default function Home() {
+    const { user, token } = useContext(AuthContext);
 
     return (
-        <form onSubmit={handleSubmit} className="login-form">
-            <h2>Login</h2>
-            {error && <p className="error-message">{error}</p>}
-
-            <div className="form-group">
-                <label>Username</label>
-                <input id="name" name="name" value={form.name} onChange={handleChange} placeholder="Username" required/>
-            </div>
-
-            <div className="form-group">
-                <label>Password</label>
-                <input id="password" name="password" value={form.password} onChange={handleChange} type="password" placeholder="Password" required/>
-
-            </div>
-
-            <button type="submit" className="submit-button">Login</button>
-        </form>
+        <div className="login-form">
+            <h2>ExpenseTracker</h2>
+            {token ? (
+                <>
+                    <p className="welcome-message">Hello, {user?.name}!</p>
+                    <Link to="/expenses">
+                        <button className="btn-block">Go to Dashboard</button>
+                    </Link>
+                </>
+            ) : (
+                <div className="auth-links">
+                    <Link to="/login">
+                        <button className="btn-block">Login</button>
+                    </Link>
+                </div>
+            )}
+        </div>
     );
 }

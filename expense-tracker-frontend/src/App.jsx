@@ -5,9 +5,10 @@ import './App.css'
 import { AuthProvider, AuthContext } from './context/AuthContext';
 
 // pages
+import Home from './pages/Home';
 import Login from './pages/Login';
 import ExpensesList from './pages/ExpensesList';
-import ExpenseCreate from "./pages/ExpenseCreate.jsx";
+import ExpenseCreate from './pages/ExpenseCreate.jsx';
 
 import { useContext } from 'react';
 
@@ -21,6 +22,7 @@ function App() {
       <AuthProvider>
           <Router>
               <Routes>
+                  <Route path="/" element={<Home />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/expenses" element={<PrivateRoute><ExpensesList /></PrivateRoute>} />
                   <Route path="/expenses/create" element={<PrivateRoute><ExpenseCreate /></PrivateRoute>} />
