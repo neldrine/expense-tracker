@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { EXPENSE_TRACKER_API_URL } from '../config';
 import '../css/ExpensesList.css';
+import Header from "../components/header";
 
 export default function ExpensesList() {
     const { logout } = useContext(AuthContext);
@@ -25,9 +26,17 @@ export default function ExpensesList() {
 
     return (
         <div className="expenses-container">
-            <div className="expenses-header">
-                <h2>All Expenses</h2>
-                <button onClick={logout}>Logout</button>
+            <Header />
+
+            <div className="expense-summary">
+                <div className="summary-box">
+                    <h4>Total Expenses</h4>
+                    <p>{expenses.length}</p>
+                </div>
+                <div className="summary-box">
+                    <h4>Total Cost</h4>
+                    <p>£{expenses.reduce((sum, e) => sum + parseFloat(e.amount), 0).toFixed(2)}</p>
+                </div>
             </div>
 
             <ul className="expenses-list">

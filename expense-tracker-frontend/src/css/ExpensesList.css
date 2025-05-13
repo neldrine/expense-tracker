@@ -11,7 +11,7 @@
 }
 
 .expense-item {
-    background: #f8f9fa;
+    background-color: #fff;
     padding: 12px;
     border-radius: 4px;
     margin-bottom: 12px;
@@ -83,4 +83,31 @@
     display: block;
     margin-top: 5px;
     color: #6c757d;
+}
+
+.expense-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    gap: 16px;
+}
+
+.summary-box {
+    flex: 1;
+    background-color: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.summary-box h4 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+}
+
+.summary-box p {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0;
 }

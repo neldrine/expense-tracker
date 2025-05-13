@@ -7,7 +7,7 @@ import { AuthProvider, AuthContext } from './context/AuthContext';
 // pages
 import Login from './pages/Login';
 import ExpensesList from './pages/ExpensesList';
-
+import ExpenseCreate from "./pages/ExpenseCreate.jsx";
 
 import { useContext } from 'react';
 
@@ -23,6 +23,7 @@ function App() {
               <Routes>
                   <Route path="/login" element={<Login />} />
                   <Route path="/expenses" element={<PrivateRoute><ExpensesList /></PrivateRoute>} />
+                  <Route path="/expenses/create" element={<PrivateRoute><ExpenseCreate /></PrivateRoute>} />
               </Routes>
           </Router>
       </AuthProvider>
