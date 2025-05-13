@@ -14,6 +14,8 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        // test requires 2 users
+
         User::create([
             'name' => 'user',
             'email' => 'user@example.com',
