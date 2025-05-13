@@ -32,6 +32,7 @@ class ExpenseSeeder extends Seeder
                 'description' => $item['description'],
                 'amount' => rand(500, 5000) / 100,
                 'category' => $item['category'],
+                'date' => now()->subDays(rand(0, 7))->toDateString(),
             ]);
         }
     }

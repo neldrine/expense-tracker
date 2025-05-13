@@ -24,6 +24,7 @@ class ExpenseController extends Controller
             'description' => 'required|string|max:255',
             'amount' => 'required|numeric|min:0.01',
             'category' => 'required|string|in:Transport,Food,Utilities,Rent,Health,Education',
+            'date' => 'required|date',
         ]);
         $expense = auth()->user()->expenses()->create($validated);
         return response()->json($expense, 201);
