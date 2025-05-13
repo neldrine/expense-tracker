@@ -249,3 +249,15 @@ npm run dev
 ```
 
 This will start the Vite dev server, usually at [http://localhost:5173](http://localhost:5173).
+
+
+### Future Changes & Improvements
+
+The following improvements are planned:
+
+- Use Laravel roles and policies instead of manual `user_id` checks
+- Implement PHPUnit testing for key API endpoints
+- Add sorting functionality to expense lists
+- Allow users to define custom expense categories
+- Add Tailwind CSS for consistent and responsive styling (deferred due to time constraints)
+- Split components -> Extract filters, summary, and list into separate components for better structure.
