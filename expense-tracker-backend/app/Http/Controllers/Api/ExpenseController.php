@@ -13,7 +13,7 @@ class ExpenseController extends Controller
      */
     public function index(Request $request)
     {
-        $query = auth()->user()->expenses()->latest();
+        $query = auth()->user()->expenses()->orderBy('date', 'desc');
 
         if ($request->has('category')) {
             $query->where('category', $request->input('category'));
