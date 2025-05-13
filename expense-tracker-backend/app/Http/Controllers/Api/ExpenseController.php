@@ -35,9 +35,10 @@ class ExpenseController extends Controller
     public function show(Expense $expense)
     {
         // future refactor use guard/policy middleware
+        // security through obscurity
         if ($expense->user_id !== auth()->id()) {
             return response()->json([
-                'message' => 'Not Found'
+                'message' => 'Expense not found'
             ], 404);
         }
 
@@ -66,8 +67,9 @@ class ExpenseController extends Controller
     public function destroy(Expense $expense)
     {
         // future refactor use guard/policy middleware
+        // security through obscurity
         if ($expense->user_id !== auth()->id()) {
-            return response()->json(['message' => "Expense not found or does not belong to the authenticated user."], 404);
+            return response()->json(['message' => "Expense not found"], 404);
         }
 
         $expense->delete();
